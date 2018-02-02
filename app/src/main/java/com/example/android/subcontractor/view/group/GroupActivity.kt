@@ -8,8 +8,10 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.widget.LinearLayoutManager
+import com.bumptech.glide.GenericTransitionOptions
 
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils.centerCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.android.subcontractor.R
@@ -58,7 +60,7 @@ class GroupActivity : AppCompatActivity() {
         tab_layout_group.setupWithViewPager(view_pager_group)
         adapter = UserAdapter { v, data ->
             val view = v?.itemView
-            Glide.with(this).load(data.photoUrl).apply(RequestOptions().circleCrop()).into(view?.image_user_profile)
+            Glide.with(this).load(data.photoUrl).thumbnail(0.1f).apply(RequestOptions().circleCrop()).into(view?.image_user_profile)
             view?.text_user_name?.text = data.name
             view?.text_user_email?.text = data.email
         }
@@ -91,10 +93,15 @@ class GroupActivity : AppCompatActivity() {
         list.clear()
         DataUtil(this).getGroup(groupId, { group ->
             text_group_title.text = group.name
-            Glide.with(this)
-                    .load(group.photoUrl)
-                    .apply(RequestOptions().transform(BlurTransformation(50)))
-                    .into(image_group_background)
+//            Glide.with(this)
+//                    .load(group.photoUrl)
+//                    .thumbnail(0.1f)
+//                    .apply(RequestOptions()
+//                            .priority(Priority.LOW)
+//                            .transform(BlurTransformation(50))
+//                          )
+//                    .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
+//                    .into(image_group_background)
         }, { member ->
             list.put(member.id, member)
             adapter.updateData(list.mapTo(mutableListOf()) { it.value })

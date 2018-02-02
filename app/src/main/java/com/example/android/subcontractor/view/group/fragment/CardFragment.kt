@@ -70,7 +70,7 @@ class CardFragment : Fragment() {
             startActivity(intent)
         }
         recycler_group_cards.adapter = adapter
-        recycler_group_cards.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        recycler_group_cards.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         refresh_layout_group.setOnRefreshListener {
             initData()
         }
