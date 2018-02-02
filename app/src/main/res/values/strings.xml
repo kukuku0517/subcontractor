@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BEER4CAN</string>
+    <string name="facebook_app_id">2004774849848795</string>
+    <string name="fb_login_protocol_scheme">fb2004774849848795</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="closeDrawer">close</string>
+    <string name="openDrawer">open</string>
+    <string name="select_color">select color</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="select_font">폰트</string>
+    <string name="add_sticker">스티커</string>
+    <string name="add_text">텍스트</string>
+
+</resources>
